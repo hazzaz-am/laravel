@@ -1,17 +1,11 @@
 <div>
     <h2>Add New User</h2>
-    @if ($errors->any())
-        <div style="color:red">
-            @foreach ($errors->all() as $error)
-                <p>{{ $error }}</p>
-            @endforeach
-        </div>
-    @endif
 
-    <form action="add-user" method="post">
+    <form action="addUser" method="post">
         @csrf
         <div class="input-wrapper">
-            <input type="text" placeholder="Enter Your Name" name="username">
+            <input type="text" placeholder="Enter Your Name" name="username" value="{{ old('username') }}"
+                class="{{ ($errors->first('username') ? 'input-error' : '') }}">
             <p style="color: red">
                 @error('username')
                     {{ $message }}
@@ -19,30 +13,19 @@
             </p>
         </div>
         <div class="input-wrapper">
-            <input type="text" placeholder="Enter Your Email" name="email">
-            <p style="color: red">@error('email')
-                {{ $message }}
-            @enderror
-            </p>
-        </div>
-        <div class="input-wrapper">
-            <input type="text" placeholder="Enter Your City" name="city">
+            <input type="text" placeholder="Enter Your Email" name="email" value="{{ old('email') }}"
+                class="{{ ($errors->first('email') ? 'input-error' : '') }}">
             <p style="color: red">
-                @error('city')
+                @error('email')
                     {{ $message }}
                 @enderror
             </p>
         </div>
         <div class="input-wrapper">
-            <h4>Skills</h4>
-            <input type="checkbox" name="skill[]" id="php">
-            <label for="php">PHP</label>
-            <input type="checkbox" name="skill[]" id="jAVA">
-            <label for="jAVA">JAVA</label>
-            <input type="checkbox" name="skill[]" id="node">
-            <label for="node">Node</label>
+            <input type="text" placeholder="Enter Your City" name="city" value="{{ old('city') }}"
+                class="{{ ($errors->first('city') ? 'input-error' : '') }}">
             <p style="color: red">
-                @error('skill')
+                @error('city')
                     {{ $message }}
                 @enderror
             </p>
@@ -62,6 +45,11 @@
         border-radius: 2px;
         color: orange;
         padding: 4px
+    }
+
+    .input-error {
+        border: red 1px solid;
+        color: red
     }
 
     .input-wrapper {

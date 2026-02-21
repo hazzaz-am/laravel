@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddUserForm;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDetailsController;
@@ -41,3 +42,5 @@ Route::view("user-form", "form.user-form");
 Route::post("add-user", [AddUserForm::class, "addUser"]);
 Route::view("user-details-form", "form.user-details-form");
 Route::post("details-form", [UserDetailsController::class, "userDetails"]);
+Route::view("form", "form.form");
+Route::post("addUser", [FormController::class, "addUser"]);
