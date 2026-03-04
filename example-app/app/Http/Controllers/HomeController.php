@@ -11,4 +11,12 @@ class HomeController extends Controller
         $users = ["Hazzaz", "Amin", "Shafin"];
         return view("dashboard.home", ["users" => $users, "name" => $name]);
     }
+
+    function show() {
+        return to_route("hm");
+    }
+
+    function showHome() {
+        return to_route("hm");
+    }
 }

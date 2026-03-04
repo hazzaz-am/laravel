@@ -2,23 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class UserController extends Controller
 {
-    function getUser() {
-        return "Hazzaz";
+    public function getUser()
+    {
+        return 'Hazzaz';
     }
 
-    function aboutUser() {
-    return "Hello This is Hazzaz Abdul Mannan";
+    public function aboutUser()
+    {
+        return 'Hello This is Hazzaz Abdul Mannan';
     }
 
-    function getUserName($name) {
-        return view("name", ["name" => $name]);
+    public function getUserName($name)
+    {
+        return view('name', ['name' => $name]);
     }
 
-    function adminLogin() {
-        return view("admin.login");
+    public function adminLogin()
+    {
+        return view('admin.login');
+    }
+
+    public function showDynamicUser()
+    {
+        return to_route('aboutUser', ['name' => 'hazzaz', 'information' => 'jobs']);
     }
 }
